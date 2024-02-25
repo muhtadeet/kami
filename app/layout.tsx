@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-// import { Inter } from "next/font/google";
 import { Ubuntu } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ui/providers/theme-provider";
 import ConvexClientProvider from "@/components/ui/providers/convex-provider";
+import { Toaster } from "sonner";
 
 const ubuntu = Ubuntu({ subsets: ["latin"], weight: ["400"] });
 
@@ -36,6 +36,7 @@ export default function RootLayout({
             disableTransitionOnChange
             storageKey="kami-theme"
           >
+            <Toaster position="bottom-center" />
             {children}
           </ThemeProvider>
         </ConvexClientProvider>
