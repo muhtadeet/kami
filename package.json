@@ -10,11 +10,15 @@
   },
   "dependencies": {
     "@clerk/clerk-react": "^4.30.5",
+    "@radix-ui/react-alert-dialog": "^1.0.5",
     "@radix-ui/react-avatar": "^1.0.4",
+    "@radix-ui/react-dialog": "^1.0.5",
     "@radix-ui/react-dropdown-menu": "^2.0.6",
+    "@radix-ui/react-popover": "^1.0.7",
     "@radix-ui/react-slot": "^1.0.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
+    "cmdk": "^0.2.1",
     "convex": "^1.9.1",
     "framer-motion": "^11.0.6",
     "lucide-react": "^0.338.0",
@@ -26,7 +30,8 @@
     "sonner": "^1.4.1",
     "tailwind-merge": "^2.2.1",
     "tailwindcss-animate": "^1.0.7",
-    "usehooks-ts": "^2.15.1"
+    "usehooks-ts": "^2.15.1",
+    "zustand": "^4.5.1"
   },
   "devDependencies": {
     "@types/node": "^20",
