@@ -35,7 +35,7 @@ const Navbar = () => {
               </button>
             </SignInButton>
             <SignInButton mode="modal">
-              <button className="inline-flex h-12 animate-shimmer items-center justify-center rounded-full border bg-[linear-gradient(110deg,#000103,45%,#3C4C63,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-white transition-all focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 transform hover:-translate-y-1  duration-400">
+              <button className="inline-flex h-12 animate-shimmer items-center justify-center rounded-full border bg-[linear-gradient(110deg,#000103,45%,#3C4C63,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-white transition-all focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 transform hover:-translate-y-1 ease-in-out duration-400">
                 Get Kami &#11212;
               </button>
             </SignInButton>

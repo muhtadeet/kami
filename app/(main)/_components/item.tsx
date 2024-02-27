@@ -21,7 +21,7 @@ import {
   Plus,
   Trash2,
 } from "lucide-react";
-import { useRouter } from "next/router";
+// import { useRouter } from "next/router";
 import React from "react";
 import { toast } from "sonner";
 
@@ -107,7 +107,7 @@ export const Item = ({
       {!!id && (
         <div
           role="button"
-          className="h-full rounded-sm hover:bg-neutral-300 dark:bg-neutral-600 mr-1"
+          className="h-full rounded-sm hover:bg-slate-300 dark:hover:bg-slate-800 mr-1"
           onClick={handleExpand}
         >
           <ChevronIcon className="h-4 w-4 shrink-0 text-muted-foreground/50" />

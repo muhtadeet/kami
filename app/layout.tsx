@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { Ubuntu } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/ui/providers/theme-provider";
-import ConvexClientProvider from "@/components/ui/providers/convex-provider";
+import { ThemeProvider } from "@/components/providers/theme-provider";
+import ConvexClientProvider from "@/components/providers/convex-provider";
 import { Toaster } from "sonner";
+import { ModalProvider } from "@/components/providers/modal-provider";
 
 const ubuntu = Ubuntu({ subsets: ["latin"], weight: ["400"] });
 
@@ -37,6 +38,7 @@ export default function RootLayout({
             storageKey="kami-theme"
           >
             <Toaster position="bottom-center" />
+            <ModalProvider />
             {children}
           </ThemeProvider>
         </ConvexClientProvider>
