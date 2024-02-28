@@ -31,7 +31,7 @@ const Heading = () => {
               <div className="px-8 py-2  bg-transparent rounded-[6px]  relative group transition duration-200 text-white hover:text-black font-bold hover:bg-white flex flex-row">
                 Enter Kami&nbsp;
                 <span className="hidden sm:block">&nbsp;&#11212;</span>
-                <Sparkle className="sm:hidden h-5 w-5 pb-[0.2rem]" />
+                <Sparkle className="sm:hidden h-5 w-5 pb-[0.15rem]" />
               </div>
             </Link>
           </button>
@@ -43,7 +43,7 @@ const Heading = () => {
               <div className="px-8 py-2  bg-transparent rounded-[6px]  relative group transition duration-200 text-white hover:text-black font-bold hover:bg-white flex flex-row">
                 Get Kami&nbsp;
                 <span className="hidden sm:block">&nbsp;&#11212;</span>
-                <Sparkle className="sm:hidden h-5 w-5 pb-[0.2rem]" />
+                <Sparkle className="sm:hidden h-5 w-5 pb-[0.15rem]" />
               </div>
             </button>
           </SignInButton>
