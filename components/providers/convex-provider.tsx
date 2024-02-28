@@ -11,7 +11,8 @@ const ConvexClientProvider = ({ children }: { children: ReactNode }) => {
   return (
     <ClerkProvider
       appearance={{
-        baseTheme: [neobrutalism, shadesOfPurple],
+        baseTheme: neobrutalism,
+        signIn: { baseTheme: shadesOfPurple },
       }}
       publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY!}
     >
