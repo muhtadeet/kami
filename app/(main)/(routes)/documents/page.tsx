@@ -38,7 +38,7 @@ const DocumentsPage = () => {
         <div className="px-3 py-2  bg-transparent rounded-[6px]  relative group transition duration-200 text-white hover:text-black font-bold hover:bg-white flex flex-row">
           Let&apos;s Create a note&nbsp;
           <span className="hidden sm:block">&nbsp;&#11212;</span>
-          <Sparkle className="sm:hidden h-4 w-4 pb-[0.25rem]" />
+          <Sparkle className="sm:hidden h-4 w-4 pt-[0.05rem]" />
         </div>
       </button>
     </div>
