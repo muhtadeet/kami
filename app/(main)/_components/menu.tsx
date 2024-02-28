@@ -12,7 +12,7 @@ import { api } from "@/convex/_generated/api";
 import { Id } from "@/convex/_generated/dataModel";
 import { useUser } from "@clerk/clerk-react";
 import { useMutation } from "convex/react";
-import { Trash2 } from "lucide-react";
+import { Sparkle, Trash2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import React from "react";
 import { toast } from "sonner";
@@ -42,7 +42,10 @@ const Menu = ({ documentId }: MenuProps) => {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <button className="inline-flex h-7 animate-shimmer items-center dark:invert justify-center rounded-full bg-[linear-gradient(110deg,#000103,45%,#3C4C63,55%,#000103)] bg-[length:200%_100%] px-2 font-medium text-white transition-all focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 transform ease-in-out duration-400">
-          <p className="text-xs">&#11212;&#11212;&#11212;</p>
+          <p className="text-xs hidden sm:block">&#11212;&#11212;&#11212;</p>
+          <Sparkle className="sm:hidden h-3 w-3 pb-[0.1rem]" />
+          <Sparkle className="sm:hidden h-3 w-3 pb-[0.1rem]" />
+          <Sparkle className="sm:hidden h-3 w-3 pb-[0.1rem]" />
         </button>
       </DropdownMenuTrigger>
       <DropdownMenuContent

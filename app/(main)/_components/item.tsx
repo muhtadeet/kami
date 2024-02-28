@@ -19,6 +19,7 @@ import {
   LucideIcon,
   MoreHorizontal,
   Plus,
+  Sparkle,
   Trash2,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
@@ -122,8 +123,9 @@ export const Item = ({
       <span className="truncate">{label}</span>
       {isSearch && (
         <kbd className="ml-auto pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
-          <span className="text-xs">
-            ⌘<span className="text-sm">&#11212;K</span>
+          <span className="text-xs flex flex-row">
+            ⌘<span className="text-sm hidden sm:block">&#11212;K</span>
+            <Sparkle className="sm:hidden h-3 w-3 pt-[0.15rem]" />K
           </span>
         </kbd>
       )}

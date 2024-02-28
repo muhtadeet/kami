@@ -7,6 +7,7 @@ import { useConvexAuth } from "convex/react";
 import { Spinner } from "@/components/spinner";
 import Link from "next/link";
 import { SignInButton } from "@clerk/clerk-react";
+import { Sparkle } from "lucide-react";
 
 const Heading = () => {
   const { isAuthenticated, isLoading } = useConvexAuth();
@@ -27,8 +28,10 @@ const Heading = () => {
           <button className="p-[3px] relative pointer-events-auto">
             <Link href="/documents">
               <div className="absolute inset-0 bg-gradient-to-r from-[#BB97F3] to-[#F9C4C9] rounded-lg" />
-              <div className="px-8 py-2  bg-transparent rounded-[6px]  relative group transition duration-200 text-white hover:text-black font-bold hover:bg-white">
-                Enter Kami &#11212;
+              <div className="px-8 py-2  bg-transparent rounded-[6px]  relative group transition duration-200 text-white hover:text-black font-bold hover:bg-white flex flex-row">
+                Enter Kami&nbsp;
+                <span className="hidden sm:block">&nbsp;&#11212;</span>
+                <Sparkle className="sm:hidden h-5 w-5 pt-[0.35rem]" />
               </div>
             </Link>
           </button>
@@ -37,8 +40,10 @@ const Heading = () => {
           <SignInButton mode="modal">
             <button className="p-[3px] relative pointer-events-auto">
               <div className="absolute inset-0 bg-gradient-to-r from-[#BB97F3] to-[#F9C4C9] rounded-lg" />
-              <div className="px-8 py-2  bg-transparent rounded-[6px]  relative group transition duration-200 text-white hover:text-black font-bold hover:bg-white">
-                Get Kami &#11212;
+              <div className="px-8 py-2  bg-transparent rounded-[6px]  relative group transition duration-200 text-white hover:text-black font-bold hover:bg-white flex flex-row">
+                Get Kami&nbsp;
+                <span className="hidden sm:block">&nbsp;&#11212;</span>
+                <Sparkle className="sm:hidden h-5 w-5 pt-[0.35rem]" />
               </div>
             </button>
           </SignInButton>

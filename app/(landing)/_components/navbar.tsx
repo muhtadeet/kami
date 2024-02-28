@@ -8,6 +8,7 @@ import { useConvexAuth } from "convex/react";
 import { SignInButton, UserButton } from "@clerk/clerk-react";
 import { Spinner } from "@/components/spinner";
 import Link from "next/link";
+import { Sparkle } from "lucide-react";
 
 const Navbar = () => {
   const { isAuthenticated, isLoading } = useConvexAuth();
@@ -35,8 +36,10 @@ const Navbar = () => {
               </button>
             </SignInButton>
             <SignInButton mode="modal">
-              <button className="inline-flex h-12 animate-shimmer items-center justify-center rounded-full border bg-[linear-gradient(110deg,#000103,45%,#3C4C63,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-white transition-all focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 transform hover:-translate-y-1 ease-in-out duration-400">
-                Get Kami &#11212;
+              <button className="inline-flex h-12 animate-shimmer items-center justify-center rounded-full border bg-[linear-gradient(110deg,#000103,45%,#3C4C63,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-white transition-all focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 transform hover:-translate-y-1 ease-in-out duration-400 flex-row">
+                Get Kami&nbsp;
+                <span className="hidden sm:block">&nbsp;&#11212;</span>
+                <Sparkle className="sm:hidden h-4 w-4 pt-[0.15rem]" />
               </button>
             </SignInButton>
           </>
@@ -44,8 +47,10 @@ const Navbar = () => {
         {isAuthenticated && !isLoading && (
           <>
             <Link href="/documents">
-              <button className="inline-flex h-12 mr-3 animate-shimmer items-center justify-center rounded-full bg-[linear-gradient(110deg,#000103,45%,#41536C,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-white transition-all focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 transform hover:-translate-y-1  duration-400">
-                Enter Kami &#11212;
+              <button className="inline-flex h-12 mr-3 animate-shimmer items-center justify-center rounded-full bg-[linear-gradient(110deg,#000103,45%,#41536C,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-white transition-all focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 transform hover:-translate-y-1  duration-400 flex-row">
+                Enter Kami&nbsp;
+                <span className="hidden sm:block">&nbsp;&#11212;</span>
+                <Sparkle className="sm:hidden h-4 w-4 pt-[0.15rem]" />
               </button>
             </Link>
             <UserButton afterSignOutUrl="/" />
