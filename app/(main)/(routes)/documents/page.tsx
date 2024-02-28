@@ -2,6 +2,7 @@
 import { api } from "@/convex/_generated/api";
 import { useUser } from "@clerk/clerk-react";
 import { useMutation } from "convex/react";
+import { Sparkle } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React from "react";
@@ -34,8 +35,10 @@ const DocumentsPage = () => {
         className="p-[3px] relative pointer-events-auto"
       >
         <div className="absolute inset-0 bg-gradient-to-r from-[#BB97F3] to-[#F9C4C9] rounded-lg" />
-        <div className="px-3 py-2  bg-transparent rounded-[6px]  relative group transition duration-200 text-white hover:text-black font-bold hover:bg-white">
-          Let&apos;s Create a note &#11212;
+        <div className="px-3 py-2  bg-transparent rounded-[6px]  relative group transition duration-200 text-white hover:text-black font-bold hover:bg-white flex flex-row">
+          Let&apos;s Create a note&nbsp;
+          <span className="hidden sm:block">&nbsp;&#11212;</span>
+          <Sparkle className="sm:hidden h-4 w-4 pb-[0.05rem]" />
         </div>
       </button>
     </div>
