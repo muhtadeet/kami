@@ -1,6 +1,7 @@
 "use client";
 
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -10,6 +11,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { SignOutButton, useUser } from "@clerk/clerk-react";
 import { ChevronsLeftRightIcon } from "lucide-react";
+import Link from "next/link";
 import React from "react";
 
 const UserItem = () => {
@@ -56,6 +58,15 @@ const UserItem = () => {
             </div>
           </div>
         </div>
+        <DropdownMenuSeparator />
+        <DropdownMenuItem
+          asChild
+          className="w-full cursor-pointer text-muted-foreground"
+        >
+          <button className="hover:border-none">
+            <Link href="/">Home</Link>
+          </button>
+        </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem
           asChild

@@ -9,6 +9,7 @@ import { api } from "@/convex/_generated/api";
 import { Id } from "@/convex/_generated/dataModel";
 import { useMutation, useQuery } from "convex/react";
 import React from "react";
+import Navbar from "@/app/(main)/_components/navbar-public";
 
 interface DocumentIdPageProps {
   params: {
@@ -56,17 +57,20 @@ const DocumentIdPage = ({ params }: DocumentIdPageProps) => {
   }
 
   return (
-    <div className="pb-40">
-      <Cover preview url={document.coverImage} />
-      <div className="md:max-w-3xl lg:max-w-4xl mx-auto">
-        <Toolbar preview initialData={document} />
-        <Editor
-          editable={false}
-          onChange={onChange}
-          initialContent={document.content}
-        />
+    <>
+      <Navbar />
+      <div className="pb-40">
+        <Cover preview url={document.coverImage} />
+        <div className="md:max-w-3xl lg:max-w-4xl mx-auto">
+          <Toolbar preview initialData={document} />
+          <Editor
+            editable={false}
+            onChange={onChange}
+            initialContent={document.content}
+          />
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

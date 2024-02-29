@@ -73,7 +73,7 @@ const Publish = ({ initialData }: PublishProps) => {
         <Button size="sm" variant="ghost">
           Share
           {initialData.isPublished && (
-            <Globe2 className="text-sky-500 w-4 h-4 ml-2" />
+            <Globe2 className="text-sky-500 animate-pulse w-4 h-4 ml-2" />
           )}
         </Button>
       </PopoverTrigger>
