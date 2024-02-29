@@ -9,6 +9,7 @@ import { SignInButton, UserButton } from "@clerk/clerk-react";
 import { Spinner } from "@/components/spinner";
 import Link from "next/link";
 import { Sparkle } from "lucide-react";
+import { shadesOfPurple } from "@clerk/themes";
 
 const Navbar = () => {
   const { isAuthenticated, isLoading } = useConvexAuth();
@@ -53,7 +54,12 @@ const Navbar = () => {
                 <Sparkle className="sm:hidden h-4 w-4 pb-[0.05rem]" />
               </button>
             </Link>
-            <UserButton afterSignOutUrl="/" />
+            <UserButton
+              afterSignOutUrl="/"
+              appearance={{
+                baseTheme: shadesOfPurple,
+              }}
+            />
           </>
         )}
         <div className="hidden sm:block">

@@ -13,6 +13,7 @@ const ConvexClientProvider = ({ children }: { children: ReactNode }) => {
       appearance={{
         baseTheme: neobrutalism,
         signIn: { baseTheme: shadesOfPurple },
+        userProfile: { baseTheme: shadesOfPurple },
       }}
       publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY!}
     >
