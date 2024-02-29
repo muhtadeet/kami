@@ -70,7 +70,7 @@ const Toolbar = ({ initialData, preview }: ToolbarProps) => {
       {!!initialData.icon && !preview && (
         <div className="flex items-center gap-x-2 group/icon pt-6">
           <IconPicker onChange={onIconSelect}>
-            <p className="text-6xl hover:opacity-75 transition ease-in-out">
+            <p className="text-6xl hover:opacity-75 transition ease-in-out cursor-grab">
               {initialData.icon}
             </p>
           </IconPicker>
