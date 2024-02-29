@@ -1,5 +1,6 @@
 "use client";
 
+import { ModeToggle } from "@/components/mode-toggle";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import {
@@ -51,10 +52,13 @@ const UserItem = () => {
                 <AvatarImage src={user?.imageUrl} />
               </Avatar>
             </div>
-            <div className="space-y-1">
+            <div className="space-y-1 flex flex-row space-x-1 items-center">
               <p className="text-sm line-clamp-1">
                 {user?.emailAddresses[0].emailAddress}
               </p>
+              {/* <span className="pl-2">
+                <ModeToggle />
+              </span> */}
             </div>
           </div>
         </div>
@@ -63,9 +67,9 @@ const UserItem = () => {
           asChild
           className="w-full cursor-pointer text-muted-foreground"
         >
-          <button className="hover:border-none">
-            <Link href="/">Home</Link>
-          </button>
+          <Link href="/">
+            <button className="hover:border-none">Home</button>
+          </Link>
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem
