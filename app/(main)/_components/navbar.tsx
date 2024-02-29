@@ -9,6 +9,7 @@ import Title from "./title";
 import Banner from "./banner";
 import Menu from "./menu";
 import Publish from "./publish";
+import Comrade from "./comrade";
 
 interface NavbarProps {
   isCollapsed: boolean;
@@ -51,6 +52,7 @@ const Navbar = ({ isCollapsed, onResetWidth }: NavbarProps) => {
           <Title initialData={document} />
           <div className="flex items-center gap-x-2">
             <Publish initialData={document} />
+            <Comrade />
             <Menu documentId={document._id} />
           </div>
         </div>
