@@ -154,7 +154,7 @@ const Navigation = () => {
         <div className="mx-2">
           <UserItem />
           <span className="flex justify-center items-center">
-            <Separator className="bg-muted-foreground/20 my-2 mb-4 w-48" />
+            <Separator className="bg-muted-foreground/20 my-2 mb-4 w-[95%] sm:w-48" />
           </span>
           <span className="flex flex-col gap-y-1">
             <Item
@@ -167,7 +167,7 @@ const Navigation = () => {
             <Item onClick={handleCreate} label="New Page" icon={FilePlus2} />
           </span>
           <span className="flex justify-center items-center">
-            <Separator className="bg-muted-foreground/20 my-2 mb-0 mt-4 w-48" />
+            <Separator className="bg-muted-foreground/20 my-2 mb-0 mt-4 w-[95%] sm:w-48" />
           </span>
         </div>
         <div className="mt-4 mx-2">
@@ -176,7 +176,7 @@ const Navigation = () => {
             <Item onClick={handleCreate} icon={Plus} label="Add a page" />
           </span>
           <span className="flex justify-center items-center">
-            <Separator className="bg-muted-foreground/20 my-2 mb-0 mt-4 w-48" />
+            <Separator className="bg-muted-foreground/20 my-2 mb-0 mt-4 w-[95%] sm:w-48" />
           </span>
           <Popover>
             <PopoverTrigger className="w-full mt-4">
