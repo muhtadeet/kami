@@ -28,6 +28,7 @@ import TrashBox from "./trash-box";
 import { useSearch } from "@/hooks/use-search";
 import { useSettings } from "@/hooks/use-settings";
 import Navbar from "./navbar";
+import { Separator } from "@/components/ui/separator";
 
 const Navigation = () => {
   const settings = useSettings();
@@ -135,7 +136,7 @@ const Navigation = () => {
       <aside
         ref={sidebarRef}
         className={cn(
-          "group/sidebar h-full bg-primary/5 dark:bg-slate-800/70 overflow-y-auto relative flex w-60 flex-col z-[99999]",
+          "group/sidebar h-full bg-primary/5 dark:bg-slate-800/70 overflow-y-auto relative flex w-60 flex-col z-[999]",
           isResetting && "transition-all ease-in-out duration-300",
           isMobile && "w-0"
         )}
@@ -144,21 +145,39 @@ const Navigation = () => {
           onClick={collapse}
           role="button"
           className={cn(
-            "h-6 w-6 text-muted-foreground rounded-sm hover:bg-neutral-300 dark:hover:bg-neutral-600 absolute top-3 right-2 opacity-0 group-hover/sidebar:opacity-100 transition ease-in-out sm:hidden",
+            "h-6 w-6 text-muted-foreground rounded-sm hover:bg-neutral-300 dark:hover:bg-neutral-600 absolute top-6 right-6 opacity-0 group-hover/sidebar:opacity-100 transition ease-in-out sm:hidden",
             isMobile && "opacity-100"
           )}
         >
           <ChevronLeft className="h-6 w-6" />
         </div>
-        <div>
+        <div className="mx-2">
           <UserItem />
-          <Item label="Search" icon={Search} isSearch onClick={search.onOpen} />
-          <Item label="Settings" icon={Settings2} onClick={settings.onOpen} />
-          <Item onClick={handleCreate} label="New Page" icon={FilePlus2} />
+          <span className="flex justify-center items-center">
+            <Separator className="bg-muted-foreground/20 my-2 mb-4 w-48" />
+          </span>
+          <span className="flex flex-col gap-y-1">
+            <Item
+              label="Search"
+              icon={Search}
+              isSearch
+              onClick={search.onOpen}
+            />
+            <Item label="Settings" icon={Settings2} onClick={settings.onOpen} />
+            <Item onClick={handleCreate} label="New Page" icon={FilePlus2} />
+          </span>
+          <span className="flex justify-center items-center">
+            <Separator className="bg-muted-foreground/20 my-2 mb-0 mt-4 w-48" />
+          </span>
         </div>
-        <div className="mt-4">
-          <DocumentList />
-          <Item onClick={handleCreate} icon={Plus} label="Add a page" />
+        <div className="mt-4 mx-2">
+          <span className="flex flex-col gap-y-3">
+            <DocumentList />
+            <Item onClick={handleCreate} icon={Plus} label="Add a page" />
+          </span>
+          <span className="flex justify-center items-center">
+            <Separator className="bg-muted-foreground/20 my-2 mb-0 mt-4 w-48" />
+          </span>
           <Popover>
             <PopoverTrigger className="w-full mt-4">
               <Item label="Trash" icon={Trash2} />

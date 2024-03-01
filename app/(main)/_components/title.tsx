@@ -47,7 +47,7 @@ const Title = ({ initialData, preview }: TitleProps) => {
   };
 
   return (
-    <div className="flex items-center gap-x-1 truncate">
+    <div className="flex items-center gap-x-1 text-start truncate line-clamp-1">
       {!!initialData.icon && (
         <p className="pointer-events-none">{initialData.icon}</p>
       )}
@@ -59,7 +59,7 @@ const Title = ({ initialData, preview }: TitleProps) => {
           onChange={onChange}
           onKeyDown={onKeyDown}
           value={title}
-          className="h-7 px-2 focus-visible:ring-transparent"
+          className="h-7 px-2 focus-visible:ring-transparent trucate"
         />
       ) : (
         <Button
@@ -68,7 +68,7 @@ const Title = ({ initialData, preview }: TitleProps) => {
           size="sm"
           className="font-normal h-auto p-1"
         >
-          <span className="truncate">{initialData.title}</span>
+          <span className="truncate line-clamp-1">{initialData.title}</span>
         </Button>
       )}
     </div>
