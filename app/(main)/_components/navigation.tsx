@@ -47,7 +47,7 @@ const Navigation = () => {
 
   useEffect(() => {
     if (isMobile) {
-      resetWidth();
+      collapse();
     } else {
       resetWidth();
     }
@@ -55,7 +55,7 @@ const Navigation = () => {
 
   useEffect(() => {
     if (isMobile) {
-      resetWidth();
+      collapse();
     }
   }, [pathname, isMobile]);
 
@@ -178,7 +178,7 @@ const Navigation = () => {
           <span className="flex justify-center items-center">
             <Separator className="bg-muted-foreground/20 my-2 mb-0 mt-4 w-[95%] sm:w-48" />
           </span>
-          <Popover>
+          <Popover modal>
             <PopoverTrigger className="w-full mt-4">
               <Item label="Trash" icon={Trash2} />
             </PopoverTrigger>
