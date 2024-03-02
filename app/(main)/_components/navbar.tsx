@@ -2,7 +2,7 @@
 import { api } from "@/convex/_generated/api";
 import { Id } from "@/convex/_generated/dataModel";
 import { useQuery } from "convex/react";
-import { MenuIcon } from "lucide-react";
+import { PanelLeftOpen } from "lucide-react";
 import { useParams } from "next/navigation";
 import React from "react";
 import Title from "./title";
@@ -42,7 +42,7 @@ const Navbar = ({ isCollapsed, onResetWidth }: NavbarProps) => {
     <>
       <nav className="bg-slate-100 dark:bg-slate-900 px-3 py-2 w-full flex items-center gap-x-4">
         {isCollapsed && (
-          <MenuIcon
+          <PanelLeftOpen
             role="button"
             onClick={onResetWidth}
             className="h-6 w-6 text-muted-foreground sm:hidden"

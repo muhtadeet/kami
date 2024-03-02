@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 import {
   ChevronLeft,
   FilePlus2,
-  MenuIcon,
+  PanelLeftOpen,
   Plus,
   Search,
   Settings2,
@@ -47,7 +47,7 @@ const Navigation = () => {
 
   useEffect(() => {
     if (isMobile) {
-      collapse();
+      resetWidth();
     } else {
       resetWidth();
     }
@@ -55,7 +55,7 @@ const Navigation = () => {
 
   useEffect(() => {
     if (isMobile) {
-      collapse();
+      resetWidth();
     }
   }, [pathname, isMobile]);
 
@@ -209,7 +209,7 @@ const Navigation = () => {
         ) : (
           <nav className="bg-transparent px-3 py-2 w-full">
             {isCollapsed && (
-              <MenuIcon
+              <PanelLeftOpen
                 onClick={resetWidth}
                 role="button"
                 className="h-6 w-6 text-muted-foreground"
