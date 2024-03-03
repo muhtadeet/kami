@@ -10,6 +10,8 @@ import Banner from "./banner";
 import Menu from "./menu";
 import Publish from "./publish";
 import Comrade from "./comrade";
+import { cn } from "@/utils/cn";
+import { useMediaQuery } from "usehooks-ts";
 
 interface NavbarProps {
   isCollapsed: boolean;
@@ -18,6 +20,8 @@ interface NavbarProps {
 
 const Navbar = ({ isCollapsed, onResetWidth }: NavbarProps) => {
   const params = useParams();
+
+  const isMobile = useMediaQuery("(max-width: 768px)");
 
   const document = useQuery(api.documents.getById, {
     documentId: params.documentId as Id<"documents">,
@@ -40,7 +44,12 @@ const Navbar = ({ isCollapsed, onResetWidth }: NavbarProps) => {
 
   return (
     <>
-      <nav className="bg-slate-100 dark:bg-slate-900 px-3 py-2 w-full flex items-center gap-x-4">
+      <nav
+        className={cn(
+          "bg-slate-100 dark:bg-slate-900 px-3 py-2 w-full flex items-center gap-x-4",
+          isMobile && !isCollapsed && "hidden"
+        )}
+      >
         {isCollapsed && (
           <PanelLeftOpen
             role="button"

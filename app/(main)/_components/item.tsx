@@ -137,7 +137,7 @@ export const Item = ({
         <div className="ml-auto flex items-center gap-x-2">
           <div
             role="button"
-            className="opacity-100 sm:opacity-0 sm:group-hover:opacity-100 h-full ml-auto mr-5 rounded-sm hover:bg-neutral-300 dark:hover:bg-neutral-600"
+            className="opacity-100 sm:opacity-0 sm:group-hover:opacity-100 h-full ml-auto mr-5 sm:mr-1 rounded-sm hover:bg-neutral-300 dark:hover:bg-neutral-600"
             onClick={onArchive}
           >
             <Trash2 className="h-5 w-5 text-muted-foreground" />

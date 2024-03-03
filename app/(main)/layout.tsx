@@ -22,7 +22,7 @@ const MainLayout = ({ children }: { children: ReactNode }) => {
   }
 
   return (
-    <div className="h-full flex dark:bg-[#1F1F1F] bg-white">
+    <div className="h-full flex dark:bg-[#1F1F1F] w-screen overflow-x-hidden bg-white">
       <Navigation />
       <main className="flex-1 h-full overflow-y-auto">
         <SearchCommand />
