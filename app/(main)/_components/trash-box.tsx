@@ -68,11 +68,11 @@ const TrashBox = () => {
   return (
     <div className="text-sm">
       <div className="flex items-center gap-x-1 p-2">
-        <Search className="h-4 w-4" />
+        <Search className="h-5 w-5" />
         <Input
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="h-7 px-2 focus-visible:ring-transparent bg-secondary"
+          className="h-10 px-2 focus-visible:ring-transparent bg-secondary"
           placeholder="Filter by page title..."
         />
       </div>
@@ -85,23 +85,23 @@ const TrashBox = () => {
             key={document._id}
             role="button"
             onClick={() => onClick(document._id)}
-            className="text-sm rounded-sm w-full hover:bg-primary/5 flex text-pretty justify-between"
+            className="text-base rounded-sm w-full hover:bg-primary/5 space-y-3 flex items-center text-pretty justify-between"
           >
             <span className="truncate pl-2">{document.title}</span>
             <div className="flex items-center">
               <div
                 onClick={(e) => onRestore(e, document._id)}
                 role="button"
-                className="rounded-sm p-2 hover:bg-neutral-200 dark:hover:bg-slate-800"
+                className="rounded-sm p-2 mb-2 hover:bg-neutral-200 dark:hover:bg-slate-800"
               >
-                <Undo className="h-4 w-4 text-muted-foreground" />
+                <Undo className="h-4 w-4 text-muted-foreground " />
               </div>
               <ConfirmModal onConfirm={() => onRemove(document._id)}>
                 <div
                   role="button"
-                  className="rounded-sm p-2 hover:bg-neutral-200 dark:hover:bg-slate-800"
+                  className="rounded-sm p-2 mb-2 hover:bg-neutral-200 dark:hover:bg-slate-800"
                 >
-                  <Trash2 className="h-4 w-4 text-muted-foreground" />
+                  <Trash2 className="h-4 w-4 text-muted-foreground " />
                 </div>
               </ConfirmModal>
             </div>

@@ -142,31 +142,6 @@ export const Item = ({
           >
             <Trash2 className="h-5 w-5 text-muted-foreground" />
           </div>
-          {/* <DropdownMenu dir="rtl">
-            <DropdownMenuTrigger onClick={(e) => e.stopPropagation()} asChild>
-              <div
-                role="button"
-                className="opacity-100 sm:opacity-0 sm:group-hover:opacity-100 h-full ml-auto rounded-sm hover:bg-neutral-300 dark:hover:bg-neutral-600"
-              >
-                <MoreHorizontal className="h-5 w-5 text-muted-foreground" />
-              </div>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent
-              className="w-60"
-              align="start"
-              side="right"
-              forceMount
-            >
-              <DropdownMenuItem onClick={onArchive}>
-                <Trash2 className="h-4 w-4 ml-2" />
-                Delete
-              </DropdownMenuItem>
-              <DropdownMenuSeparator />
-              <div className="text-xs text-muted-foreground p-2">
-                Last edited by: {user?.fullName}
-              </div>
-            </DropdownMenuContent>
-          </DropdownMenu> */}
           <div
             role="button"
             onClick={onCreate}

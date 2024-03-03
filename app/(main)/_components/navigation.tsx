@@ -30,6 +30,17 @@ import { useSettings } from "@/hooks/use-settings";
 import Navbar from "./navbar";
 import { Separator } from "@/components/ui/separator";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer";
+import { Settings } from "@/components/modals/settings";
 
 const Navigation = () => {
   const settings = useSettings();
@@ -137,7 +148,7 @@ const Navigation = () => {
       <aside
         ref={sidebarRef}
         className={cn(
-          "group/sidebar h-full bg-primary/5 dark:bg-slate-800/70 overflow-y-auto relative flex w-60 flex-col z-[999]",
+          "group/sidebar h-screen bg-primary/5 dark:bg-slate-800/70 overflow-y-auto relative flex w-60 flex-col z-[9]",
           isResetting && "transition-all ease-in-out duration-300",
           isMobile && "w-0"
         )}
@@ -164,7 +175,19 @@ const Navigation = () => {
               isSearch
               onClick={search.onOpen}
             />
-            <Item label="Settings" icon={Settings2} onClick={settings.onOpen} />
+            <Drawer>
+              <DrawerTrigger>
+                <Item label="Settings" icon={Settings2} />
+              </DrawerTrigger>
+              <DrawerContent className="z-[9999]">
+                <DrawerHeader className="border-b pb-5 flex justify-center">
+                  <DrawerTitle>
+                    <h2 className="text-lg font-medium">Settings</h2>
+                  </DrawerTitle>
+                </DrawerHeader>
+                <Settings />
+              </DrawerContent>
+            </Drawer>
             <Item onClick={handleCreate} label="New Page" icon={FilePlus2} />
           </span>
           <span className="flex justify-center items-center">
@@ -181,17 +204,14 @@ const Navigation = () => {
           <span className="flex justify-center items-center">
             <Separator className="bg-muted-foreground/20 my-2 mb-0 mt-4 w-[95%] sm:w-48" />
           </span>
-          <Popover modal>
-            <PopoverTrigger className="w-full mt-4">
+          <Drawer>
+            <DrawerTrigger className="w-full mt-4">
               <Item label="Trash" icon={Trash2} />
-            </PopoverTrigger>
-            <PopoverContent
-              className="p-0 w-72"
-              side={isMobile ? "bottom" : "right"}
-            >
+            </DrawerTrigger>
+            <DrawerContent className="z-[99999]">
               <TrashBox />
-            </PopoverContent>
-          </Popover>
+            </DrawerContent>
+          </Drawer>
         </div>
         <div
           onMouseDown={handleMouseDown}
