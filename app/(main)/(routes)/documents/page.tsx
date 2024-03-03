@@ -1,17 +1,21 @@
 "use client";
 import { api } from "@/convex/_generated/api";
+import { cn } from "@/utils/cn";
 import { useUser } from "@clerk/clerk-react";
 import { useMutation } from "convex/react";
 import { Sparkle } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import React from "react";
+import React, { useState } from "react";
 import { toast } from "sonner";
+import { useMediaQuery } from "usehooks-ts";
 
 const DocumentsPage = () => {
   const router = useRouter();
   const { user } = useUser();
   const create = useMutation(api.documents.create);
+  const isMobile = useMediaQuery("(max-width: 768px)");
+  const [isCollapsed, setIsCollapsed] = useState(isMobile);
 
   const onCreate = () => {
     const promise = create({ title: "Untitled" }).then((documentId) =>
@@ -25,7 +29,12 @@ const DocumentsPage = () => {
   };
 
   return (
-    <div className="h-full flex flex-col items-center justify-center space-y-4">
+    <div
+      className={cn(
+        "h-full flex flex-col items-center justify-center space-y-4",
+        isMobile && !isCollapsed && "hidden"
+      )}
+    >
       <Image src="/newNote.png" height={300} width={300} alt="New Note" />
       <h2 className="text-base sm:text-lg font-bold">
         Howdy, Hey {user?.firstName}! Welcome to your Kami!

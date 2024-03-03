@@ -19,23 +19,14 @@ import { api } from "@/convex/_generated/api";
 import Item from "./item";
 import { toast } from "sonner";
 import DocumentList from "./document-list";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
 import TrashBox from "./trash-box";
 import { useSearch } from "@/hooks/use-search";
-import { useSettings } from "@/hooks/use-settings";
 import Navbar from "./navbar";
 import { Separator } from "@/components/ui/separator";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import {
   Drawer,
-  DrawerClose,
   DrawerContent,
-  DrawerDescription,
-  DrawerFooter,
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
@@ -43,7 +34,6 @@ import {
 import { Settings } from "@/components/modals/settings";
 
 const Navigation = () => {
-  const settings = useSettings();
   const search = useSearch();
   const params = useParams();
   const pathname = usePathname();
