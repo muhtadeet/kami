@@ -124,7 +124,10 @@ export const Item = ({
       {isSearch && (
         <kbd className="ml-auto pointer-events-none hidden sm:inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
           <span className="text-xs flex flex-row">
-            ⌘<span className="text-sm hidden sm:block -mt-[0.1rem]">&#11212;K</span>
+            ⌘
+            <span className="text-sm hidden sm:block -mt-[0.1rem]">
+              &#11212;K
+            </span>
             <Sparkle className="sm:hidden h-3 w-3" />
             <p className="sm:hidden text-sm -mt-[0.15rem]">K</p>
           </span>
@@ -132,7 +135,14 @@ export const Item = ({
       )}
       {!!id && (
         <div className="ml-auto flex items-center gap-x-2">
-          <DropdownMenu dir="rtl">
+          <div
+            role="button"
+            className="opacity-100 sm:opacity-0 sm:group-hover:opacity-100 h-full ml-auto rounded-sm hover:bg-neutral-300 dark:hover:bg-neutral-600"
+            onClick={onArchive}
+          >
+            <Trash2 className="h-5 w-5 text-muted-foreground" />
+          </div>
+          {/* <DropdownMenu dir="rtl">
             <DropdownMenuTrigger onClick={(e) => e.stopPropagation()} asChild>
               <div
                 role="button"
@@ -148,7 +158,7 @@ export const Item = ({
               forceMount
             >
               <DropdownMenuItem onClick={onArchive}>
-                <Trash2 className="h-4 w-4 mr-2" />
+                <Trash2 className="h-4 w-4 ml-2" />
                 Delete
               </DropdownMenuItem>
               <DropdownMenuSeparator />
@@ -156,7 +166,7 @@ export const Item = ({
                 Last edited by: {user?.fullName}
               </div>
             </DropdownMenuContent>
-          </DropdownMenu>
+          </DropdownMenu> */}
           <div
             role="button"
             onClick={onCreate}

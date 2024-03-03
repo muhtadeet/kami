@@ -29,6 +29,7 @@ import { useSearch } from "@/hooks/use-search";
 import { useSettings } from "@/hooks/use-settings";
 import Navbar from "./navbar";
 import { Separator } from "@/components/ui/separator";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 const Navigation = () => {
   const settings = useSettings();
@@ -172,7 +173,9 @@ const Navigation = () => {
         </div>
         <div className="mt-4 mx-2">
           <span className="flex flex-col gap-y-3">
-            <DocumentList />
+            <ScrollArea className="h-72">
+              <DocumentList />
+            </ScrollArea>
             <Item onClick={handleCreate} icon={Plus} label="Add a page" />
           </span>
           <span className="flex justify-center items-center">
