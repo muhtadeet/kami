@@ -7,7 +7,7 @@ import { useConvexAuth } from "convex/react";
 
 const LandingPage = () => {
   const router = useRouter();
-  const { isAuthenticated, isLoading } = useConvexAuth();
+  const { isAuthenticated } = useConvexAuth();
 
   if (isAuthenticated) {
     router.push("/documents");
