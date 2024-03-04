@@ -8,14 +8,11 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { toast } from "sonner";
-import { useMediaQuery } from "usehooks-ts";
 
 const DocumentsPage = () => {
   const router = useRouter();
   const { user } = useUser();
   const create = useMutation(api.documents.create);
-  const isMobile = useMediaQuery("(max-width: 768px)");
-  const [isCollapsed, setIsCollapsed] = useState(isMobile);
 
   const onCreate = () => {
     const promise = create({ title: "Untitled" }).then((documentId) =>
@@ -31,8 +28,7 @@ const DocumentsPage = () => {
   return (
     <div
       className={cn(
-        "h-full flex flex-col items-center justify-center space-y-4",
-        isMobile && !isCollapsed && "hidden"
+        "h-full flex flex-col items-center justify-center space-y-4"
       )}
     >
       <Image src="/newNote.png" height={300} width={300} alt="New Note" />
