@@ -91,7 +91,7 @@ const UserItem = () => {
             }}
           />
         </span>
-        <p className="font-semibold inline-flex h-7 animate-shimmer2 text-base items-center justify-center rounded-full bg-gradient-to-r from-indigo-400 from-15% to-red-400 to-90% bg-[length:200%_100%] px-1 text-transparent transition-all focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 transform ease-in-out duration-400 bg-clip-text">
+        <p className="font-semibold dark:invert inline-flex h-7 animate-shimmer2 text-base items-center justify-center rounded-full bg-[linear-gradient(110deg,#000103,45%,#3C4C63,55%,#000103)] bg-[length:200%_100%] px-1 text-transparent transition-all focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 transform ease-in-out duration-400 bg-clip-text">
           {user?.firstName}&apos;s Kami
         </p>
       </div>
