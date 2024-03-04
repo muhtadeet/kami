@@ -15,7 +15,7 @@ const Comrade = () => {
             alt="Comrade Logo"
             width={20}
             height={20}
-            className="animate-pulse delay-1000 h-7 w-7"
+            className="h-7 w-7"
           />
         </a>
       </Button>
