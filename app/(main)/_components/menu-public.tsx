@@ -15,6 +15,16 @@ import Link from "next/link";
 import React from "react";
 import Item from "./item";
 import { useSettings } from "@/hooks/use-settings";
+import {
+  Drawer,
+  DrawerContent,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer";
+import { Settings } from "@/components/modals/settings";
+import { ModeToggle } from "@/components/mode-toggle";
+import { Label } from "@/components/ui/label";
 
 const Menu = () => {
   const settings = useSettings();
@@ -49,7 +59,14 @@ const Menu = () => {
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem>
-          <Item label="Settings" icon={Settings2} onClick={settings.onOpen} />
+          <div className="flex items-center justify-between">
+            <div>
+              <ModeToggle />
+            </div>
+            <div className="flex flex-col gap-y-1">
+              <Label className="text-sm">Appearance</Label>
+            </div>
+          </div>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
