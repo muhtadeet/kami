@@ -101,7 +101,7 @@ export const Item = ({
       role="button"
       style={{ paddingLeft: level ? `${level * 12 + 12}px` : "12px" }}
       className={cn(
-        "group min-h-[27px] text-sm py-3 pr-3 w-full hover:bg-primary/5 rounded-lg flex items-center text-muted-foreground font-medium",
+        "group min-h-[27px] text-sm sm:text-xs py-3 sm:py-2 pr-2 w-full hover:bg-primary/5 rounded-lg flex items-center text-muted-foreground font-medium",
         active && "bg-primary/5 text-primary"
       )}
     >
@@ -117,7 +117,7 @@ export const Item = ({
       {documentIcon ? (
         <div className="shrink-0 mr-2 text-[18px]">{documentIcon}</div>
       ) : (
-        <Icon className="shrink-0 h-[21px] w-[21px] mr-2 text-muted-foreground" />
+        <Icon className="shrink-0 h-[21px] w-[21px] sm:h-[18px] sm:w-[18px] mr-2 text-muted-foreground" />
       )}
 
       <span className="truncate">{label}</span>
@@ -140,14 +140,14 @@ export const Item = ({
             className="opacity-100 sm:opacity-0 sm:group-hover:opacity-100 h-full ml-auto mr-5 sm:mr-1 rounded-sm hover:bg-neutral-300 dark:hover:bg-neutral-600"
             onClick={onArchive}
           >
-            <Trash2 className="h-5 w-5 text-muted-foreground" />
+            <Trash2 className="h-5 w-5 sm:h-4 sm:w-4 text-muted-foreground" />
           </div>
           <div
             role="button"
             onClick={onCreate}
             className="opacity-100 sm:opacity-0 sm:group-hover:opacity-100 h-full ml-auto mr-1 rounded-sm hover:bg-neutral-300 dark:hover:bg-neutral-600"
           >
-            <Plus className="h-5 w-5 text-muted-foreground" />
+            <Plus className="h-5 w-5 sm:h-4 sm:w-4 text-muted-foreground" />
           </div>
         </div>
       )}

@@ -158,7 +158,7 @@ const Navigation = () => {
           <span className="flex justify-center items-center">
             <Separator className="bg-muted-foreground/20 my-2 mb-4 w-[95%] sm:w-48" />
           </span>
-          <span className="flex flex-col gap-y-1">
+          <span className="flex flex-col gap-y-1 sm:gap-y-0">
             <Item
               label="Search"
               icon={Search}
@@ -172,7 +172,7 @@ const Navigation = () => {
               <DrawerContent className="z-[9999]">
                 <DrawerHeader className="border-b pb-5 flex justify-center">
                   <DrawerTitle>
-                    <h2 className="text-lg font-medium">Settings</h2>
+                    <h2 className="text-2xl font-medium">Settings</h2>
                   </DrawerTitle>
                 </DrawerHeader>
                 <Settings />
@@ -186,7 +186,7 @@ const Navigation = () => {
         </div>
         <div className="mt-4 mx-2">
           <span className="flex flex-col gap-y-3">
-            <ScrollArea className="h-72">
+            <ScrollArea className="h-72 sm:h-72 md:h-40 xl:h-72">
               <DocumentList />
             </ScrollArea>
             <Item onClick={handleCreate} icon={Plus} label="Add a page" />

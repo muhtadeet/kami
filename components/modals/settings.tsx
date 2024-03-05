@@ -3,11 +3,14 @@
 import { Label } from "../ui/label";
 import { ModeToggle } from "../mode-toggle";
 import Link from "next/link";
+import { Send } from "lucide-react";
+
+const mail = "muhtadeetaron@gmail.com";
 
 export const Settings = () => {
   return (
     <>
-      <div className="flex items-center justify-between p-8 sm:px-80">
+      <div className="flex items-center justify-between p-8 sm:px-80 md:px-40 xl:px-80">
         <div className="flex flex-col gap-y-1">
           <Label className="text-lg">Appearance</Label>
           <span className="text-[0.8rem] text-muted-foreground">
@@ -15,6 +18,17 @@ export const Settings = () => {
           </span>
         </div>
         <ModeToggle />
+      </div>
+      <div className="flex items-center justify-between p-8 sm:px-80 md:px-40 xl:px-80">
+        <div className="flex flex-col gap-y-1">
+          <Label className="text-lg">Facing any issue?</Label>
+          <span className="text-[0.8rem] text-muted-foreground">
+            Feel drop by! I&apos;m always happy to help!
+          </span>
+        </div>
+        <a href={`mailto:${mail}`} className="mr-2">
+          <Send />
+        </a>
       </div>
       <div className="flex justify-center items-center mt-2 p-8 pt-3">
         <Link
