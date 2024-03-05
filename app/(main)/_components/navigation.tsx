@@ -169,7 +169,7 @@ const Navigation = () => {
               <DrawerTrigger>
                 <Item label="Settings" icon={Settings2} />
               </DrawerTrigger>
-              <DrawerContent className="z-[9999]">
+              <DrawerContent>
                 <DrawerHeader className="border-b pb-5 flex justify-center">
                   <DrawerTitle>
                     <h2 className="text-2xl font-medium">Settings</h2>
@@ -198,7 +198,7 @@ const Navigation = () => {
             <DrawerTrigger className="w-full mt-4">
               <Item label="Trash" icon={Trash2} />
             </DrawerTrigger>
-            <DrawerContent className="z-[99999]">
+            <DrawerContent className="z-[99999999]">
               <TrashBox />
             </DrawerContent>
           </Drawer>

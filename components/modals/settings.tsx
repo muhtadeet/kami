@@ -10,7 +10,7 @@ const mail = "muhtadeetaron@gmail.com";
 export const Settings = () => {
   return (
     <>
-      <div className="flex items-center justify-between p-8 sm:px-80 md:px-40 xl:px-80">
+      <div className="flex items-center justify-between z-[999999] p-8 sm:px-80 md:px-40 xl:px-80">
         <div className="flex flex-col gap-y-1">
           <Label className="text-lg">Appearance</Label>
           <span className="text-[0.8rem] text-muted-foreground">

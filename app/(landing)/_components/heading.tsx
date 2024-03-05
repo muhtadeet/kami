@@ -14,7 +14,7 @@ const Heading = () => {
 
   return (
     <>
-      <div className="max-w-3xl mt-32 md:mt-40 xl:mt-28 sm:space-y-4 md:space-y-2 xl:space-y-4 z-50 inset-0 w-full left-0 right-0 m-auto absolute flex justify-center text- dark:text-white pointer-events-none flex-col items-center">
+      <div className="max-w-3xl mt-32 md:mt-40 xl:mt-28 space-y-4 md:space-y-2 xl:space-y-4 z-50 inset-0 w-full left-0 right-0 m-auto absolute flex justify-center text- dark:text-white pointer-events-none flex-col items-center">
         <h1 className="text-3xl sm:text-5xl md:text-3xl xl:text-6xl font-bold">
           Harmony in Thought, Document, and Purpose
           <br />
