@@ -22,9 +22,9 @@ export function ModeToggle() {
       }}
     >
       {!theme ? null : theme === "dark" ? (
-        <IconMoon className="transition-all" />
+        <IconMoon className="transition-all ease-in-out" />
       ) : (
-        <IconSun className="transition-all" />
+        <IconSun className="transition-all ease-in-out" />
       )}
       <span className="sr-only">Toggle theme</span>
     </Button>

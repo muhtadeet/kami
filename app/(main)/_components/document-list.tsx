@@ -53,17 +53,18 @@ const DocumentList = ({ parentDocumentId, level = 0 }: DocumentListProps) => {
       <p
         style={{
           paddingLeft: level ? `${level * 12 + 25}px` : undefined,
+          animation: "ease-in-out",
         }}
         className={cn(
-          "hidden text-sm font-medium text-muted-foreground/80",
-          expanded && "last:block",
-          level === 0 && "hidden"
+          "hidden text-sm font-medium text-muted-foreground/80 transition ease-in-out",
+          expanded && "last:block transition ease-in-out",
+          level === 0 && "hidden transition ease-in-out"
         )}
       >
         No Pages Inside
       </p>
       {documents.map((document) => (
-        <div key={document._id} className="gap-y-1">
+        <div key={document._id} className="gap-y-1 transition ease-in-out">
           <Item
             id={document._id}
             onClick={() => onRedirect(document._id)}

@@ -93,25 +93,28 @@ export const Item = ({
     });
   };
 
-  const ChevronIcon = expanded ? ChevronDown : ChevronRight;
-
   return (
     <div
       onClick={onClick}
       role="button"
       style={{ paddingLeft: level ? `${level * 12 + 12}px` : "12px" }}
       className={cn(
-        "group min-h-[27px] text-sm sm:text-xs py-3 sm:py-2 pr-2 w-full hover:bg-primary/5 rounded-lg flex items-center text-muted-foreground font-medium",
-        active && "bg-primary/5 text-primary"
+        "group min-h-[27px] text-sm sm:text-xs py-3 sm:py-2 pr-2 w-full hover:bg-primary/5 rounded-lg flex items-center text-muted-foreground font-medium transition ease-in-out",
+        active && "bg-primary/5 text-primary transition ease-in-out"
       )}
     >
       {!!id && (
         <div
           role="button"
-          className="h-full rounded-sm hover:bg-slate-300 dark:hover:bg-slate-800 mr-1"
+          className="h-full rounded-sm hover:bg-slate-300 dark:hover:bg-slate-800 mr-1 transition ease-in-out"
           onClick={handleExpand}
         >
-          <ChevronIcon className="h-5 w-5 shrink-0 text-muted-foreground/50" />
+          <ChevronRight
+            className={cn(
+              "h-5 w-5 shrink-0 text-muted-foreground/50 transition ease-in-out",
+              expanded && "rotate-90 transition ease-in-out"
+            )}
+          />
         </div>
       )}
       {documentIcon ? (
@@ -145,9 +148,9 @@ export const Item = ({
           <div
             role="button"
             onClick={onCreate}
-            className="opacity-100 sm:opacity-0 sm:group-hover:opacity-100 h-full ml-auto mr-1 rounded-sm hover:bg-neutral-300 dark:hover:bg-neutral-600"
+            className="opacity-100 sm:opacity-0 sm:group-hover:opacity-100 h-full ml-auto mr-1 rounded-sm hover:bg-neutral-300 dark:hover:bg-neutral-600 transition ease-in-out"
           >
-            <Plus className="h-5 w-5 sm:h-4 sm:w-4 text-muted-foreground" />
+            <Plus className="h-5 w-5 sm:h-4 sm:w-4 text-muted-foreground transition ease-in-out" />
           </div>
         </div>
       )}
