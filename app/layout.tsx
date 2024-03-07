@@ -11,7 +11,7 @@ const ubuntu = Ubuntu({ subsets: ["latin"], weight: ["400"] });
 
 export const metadata: Metadata = {
   title: "Kami",
-  description: "The ultimate productivity first note app",
+  description: "Not your average note app",
   manifest: "/manifest.json",
   icons: {
     icon: [
