@@ -49,7 +49,7 @@ export const archive = mutation({
   },
 });
 
-export const getSidebar = await query({
+export const getSidebar = query({
   args: {
     parentDocument: v.optional(v.id("documents")),
   },
@@ -225,7 +225,7 @@ export const getSearch = query({
   },
 });
 
-export const getById = await query({
+export const getById = query({
   args: { documentId: v.id("documents") },
   handler: async (ctx, args) => {
     const identity = await ctx.auth.getUserIdentity();
