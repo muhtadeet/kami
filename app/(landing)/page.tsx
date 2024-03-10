@@ -1,9 +1,12 @@
 "use client";
 
 import React from "react";
-import Heading from "./_components/heading";
+// import Heading from "./_components/heading";
 import { useRouter } from "next/navigation";
 import { useConvexAuth } from "convex/react";
+import dynamic from "next/dynamic";
+
+const Heading = dynamic(() => import("./_components/heading"));
 
 const LandingPage = () => {
   const router = useRouter();

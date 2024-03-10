@@ -16,9 +16,9 @@ import { useMediaQuery } from "usehooks-ts";
 import UserItem from "./user-item";
 import { useMutation } from "convex/react";
 import { api } from "@/convex/_generated/api";
-import Item from "./item";
+// import Item from "./item";
 import { toast } from "sonner";
-import DocumentList from "./document-list";
+// import DocumentList from "./document-list";
 import TrashBox from "./trash-box";
 import { useSearch } from "@/hooks/use-search";
 import Navbar from "./navbar";
@@ -32,6 +32,10 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer";
 import { Settings } from "@/components/modals/settings";
+import dynamic from "next/dynamic";
+
+const DocumentList = dynamic(() => import("./document-list"));
+const Item = dynamic(() => import("./item"));
 
 const Navigation = () => {
   const search = useSearch();

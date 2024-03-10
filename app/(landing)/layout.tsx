@@ -1,6 +1,9 @@
 import React from "react";
-import Navbar from "./_components/navbar";
+// import Navbar from "./_components/navbar";
 import { BackgroundGradientAnimation } from "@/components/ui/background-gradient-animation";
+import dynamic from "next/dynamic";
+
+const Navbar = dynamic(() => import("./_components/navbar"));
 
 const LandingLayout = ({ children }: { children: React.ReactNode }) => {
   return (
