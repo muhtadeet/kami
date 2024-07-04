@@ -58,10 +58,10 @@ const Menu = ({ documentId }: MenuProps) => {
           <Trash2 className="h-4 w-4 mr-2" />
           Delete
         </DropdownMenuItem>
-        <DropdownMenuSeparator />
+        {/* <DropdownMenuSeparator />
         <div className="text-xs text-muted-foreground p-2">
           Last edited by: {user?.fullName}
-        </div>
+        </div> */}
       </DropdownMenuContent>
     </DropdownMenu>
   );
