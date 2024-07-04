@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="sm:hidden">
         <Logo />
       </div>
-      &nbsp; <p className="hidden sm:block">Kami&nbsp;</p>&nbsp;|&nbsp;&nbsp;<p className="sm:hidden">&nbsp;</p>Muhtadee Taron
+      &nbsp; <p className="hidden sm:block">Kami&nbsp;</p>&nbsp;|&nbsp;&nbsp;<p className="sm:hidden">&nbsp;</p>Mustakim Islam Alif
     </div>
   );
 };

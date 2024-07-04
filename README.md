@@ -8,7 +8,6 @@
 - Move to trash functionality 🗑️
 - Custom emoji picker 🥳
 - Light mode dark mode 🌅
-- Next.js 14 🔼
 - Rich text editor 💬
 - Update profile settings 📝
 - Authentication 🔐
