@@ -29,6 +29,7 @@ const Publish = ({ initialData }: PublishProps) => {
   const [copied, setCopied] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [editability, seteditability] = useState(false);
+  const [text, setText] = useState("Collab!");
 
   const url = `${origin}/preview/${initialData._id}`;
 
@@ -49,6 +50,7 @@ const Publish = ({ initialData }: PublishProps) => {
 
   const onPermitting = () => {
     setIsSubmitting(true);
+    setText("Collabed!");
 
     const promise = update({
       id: initialData._id,
@@ -64,6 +66,7 @@ const Publish = ({ initialData }: PublishProps) => {
 
   const onRejecting = () => {
     setIsSubmitting(true);
+    setText("Collab!");
 
     const promise = update({
       id: initialData._id,
@@ -138,8 +141,8 @@ const Publish = ({ initialData }: PublishProps) => {
                 )}
               </Button>
             </div>
-
             <EncryptButton
+              TARGET_TEXT={text}
               disabled={isSubmitting}
               onClick={
                 editability == initialData.isEditable

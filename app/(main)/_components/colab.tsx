@@ -5,15 +5,16 @@ import { motion } from "framer-motion";
 interface ExampleProps {
   onClick?: () => void;
   disabled?: boolean;
+  TARGET_TEXT: string;
 }
 
-const TARGET_TEXT = "COLLAB!";
+// const TARGET_TEXT = "COLLAB!";
 const CYCLES_PER_LETTER = 2;
 const SHUFFLE_TIME = 50;
 
 const CHARS = "!@#$%^&*():{};|,.<>/?";
 
-const EncryptButton = ({ onClick, disabled }: ExampleProps) => {
+const EncryptButton = ({ onClick, disabled, TARGET_TEXT }: ExampleProps) => {
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const [text, setText] = useState(TARGET_TEXT);
@@ -52,8 +53,8 @@ const EncryptButton = ({ onClick, disabled }: ExampleProps) => {
 
   return (
     <motion.button
-    onClick={onClick}
-    disabled={disabled}
+      onClick={onClick}
+      disabled={disabled}
       whileHover={{
         scale: 1.025,
       }}
