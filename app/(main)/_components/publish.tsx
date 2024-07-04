@@ -29,7 +29,7 @@ const Publish = ({ initialData }: PublishProps) => {
   const [copied, setCopied] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [editability, seteditability] = useState(false);
-  const [text, setText] = useState("Collab!");
+  const [text, setText] = useState(initialData.isEditable ? "Collabed!" : "Collab!");
 
   const url = `${origin}/preview/${initialData._id}`;
 
