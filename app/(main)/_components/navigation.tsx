@@ -190,7 +190,7 @@ const Navigation = () => {
         </div>
         <div className="mt-4 mx-2">
           <span className="flex flex-col gap-y-3">
-            <ScrollArea className="h-72 sm:h-72 md:h-40 xl:h-72">
+            <ScrollArea className="h-72 sm:h-72 md:h-40 xl:h-96">
               <DocumentList />
             </ScrollArea>
             <Item onClick={handleCreate} icon={Plus} label="Add a page" />
