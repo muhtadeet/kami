@@ -16,6 +16,7 @@ import React from "react";
 interface ConfirmModalProps {
   children: React.ReactNode;
   onConfirm: () => void;
+  className: string;
 }
 
 const ConfirmModal = ({ children, onConfirm }: ConfirmModalProps) => {

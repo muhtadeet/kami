@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useMutation } from "convex/react";
 import { toast } from "sonner";
-import { Check, Copy, Globe2 } from "lucide-react";
+import { Check, CheckCheckIcon, Copy, Globe2 } from "lucide-react";
 
 import { Doc } from "@/convex/_generated/dataModel";
 import {
@@ -14,7 +14,8 @@ import {
 import { useOrigin } from "@/hooks/use-origin";
 import { api } from "@/convex/_generated/api";
 import { Button } from "@/components/ui/button";
-
+import { Switch } from "@/components/ui/switch";
+import { Toggle } from "@/components/ui/toggle";
 interface PublishProps {
   initialData: Doc<"documents">;
 }
@@ -25,6 +26,7 @@ const Publish = ({ initialData }: PublishProps) => {
 
   const [copied, setCopied] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [test, setTest] = useState(false);
 
   const url = `${origin}/preview/${initialData._id}`;
 
@@ -40,6 +42,36 @@ const Publish = ({ initialData }: PublishProps) => {
       loading: "Publishing... 🗺️",
       success: "Note published! 🌎",
       error: "Failed to publish note. 🥺",
+    });
+  };
+
+  const onPermitting = () => {
+    setIsSubmitting(true);
+
+    const promise = update({
+      id: initialData._id,
+      isEditable: true,
+    }).finally(() => setIsSubmitting(false));
+
+    toast.promise(promise, {
+      loading: "Enabling Collaboration... ⛵",
+      success: "Opened doors of Collaboration! 🤝",
+      error: "Failed to Enable Editability. 🥺",
+    });
+  };
+
+  const onRejecting = () => {
+    setIsSubmitting(true);
+
+    const promise = update({
+      id: initialData._id,
+      isEditable: false,
+    }).finally(() => setIsSubmitting(false));
+
+    toast.promise(promise, {
+      loading: "Disabling Collaboration... ⛵",
+      success: "Closed doors of Collaboration! 👎",
+      error: "Failed to Enable Editability. 🥺",
     });
   };
 
@@ -104,6 +136,17 @@ const Publish = ({ initialData }: PublishProps) => {
                 )}
               </Button>
             </div>
+
+            <div className="flex flex-row justify-between">
+              <Toggle
+                onClick={
+                  test == initialData.isEditable ? onPermitting : onRejecting
+                }
+              >
+                <p className="text-xs font-medium ">✏️ Editable</p>
+              </Toggle>
+            </div>
+
             <Button
               size="sm"
               className="w-full text-xs px-4 py-2 rounded-md border dark:border-white dark:bg-white dark:hover:bg-slate-700 dark:hover:text-white border-black hover:bg-white bg-black hover:text-slate-700 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0)] dark:hover:shadow-[4px_4px_0px_0px_rgba(255,255,255)] transition ease-in-out duration-200"

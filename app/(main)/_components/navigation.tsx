@@ -202,7 +202,7 @@ const Navigation = () => {
             <DrawerTrigger className="w-full mt-4">
               <Item label="Trash" icon={Trash2} />
             </DrawerTrigger>
-            <DrawerContent className="z-[99999999]">
+            <DrawerContent>
               <TrashBox />
             </DrawerContent>
           </Drawer>

@@ -23,10 +23,10 @@ export const Settings = () => {
         <div className="flex flex-col gap-y-1">
           <Label className="text-lg">Facing any issue?</Label>
           <span className="text-[0.8rem] text-muted-foreground">
-            Feel drop by! I&apos;m always happy to help!
+            Feel Free to drop by! I&apos;m always happy to help!
           </span>
         </div>
-        <a href={`mailto:${mail}`} className="mr-2">
+        <a href="https://t.me/izumi_exe" target="_blank" className="mr-2">
           <Send />
         </a>
       </div>

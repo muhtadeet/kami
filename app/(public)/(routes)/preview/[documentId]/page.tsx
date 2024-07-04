@@ -6,7 +6,7 @@ import { useMemo } from "react";
 import Toolbar from "@/components/toolbar";
 import { Skeleton } from "@/components/ui/skeleton";
 import { api } from "@/convex/_generated/api";
-import { Id } from "@/convex/_generated/dataModel";
+import { Doc, Id } from "@/convex/_generated/dataModel";
 import { useMutation, useQuery } from "convex/react";
 import React from "react";
 import Navbar from "@/app/(main)/_components/navbar-public";
@@ -14,6 +14,7 @@ import Navbar from "@/app/(main)/_components/navbar-public";
 interface DocumentIdPageProps {
   params: {
     documentId: Id<"documents">;
+    initialData: Doc<"documents">;
   };
 }
 
@@ -64,7 +65,7 @@ const DocumentIdPage = ({ params }: DocumentIdPageProps) => {
         <div className="md:max-w-3xl lg:max-w-4xl mx-auto">
           <Toolbar preview initialData={document} />
           <Editor
-            editable={false}
+            editable={document.isEditable}
             onChange={onChange}
             initialContent={document.content}
           />

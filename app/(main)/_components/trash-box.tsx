@@ -96,12 +96,12 @@ const TrashBox = () => {
               >
                 <Undo className="h-4 w-4 text-muted-foreground " />
               </div>
-              <ConfirmModal onConfirm={() => onRemove(document._id)}>
+              <ConfirmModal className="z-[999999999999999]" onConfirm={() => onRemove(document._id)}>
                 <div
                   role="button"
                   className="rounded-sm p-2 mb-2 hover:bg-neutral-200 dark:hover:bg-slate-800"
                 >
-                  <Trash2 className="h-4 w-4 text-muted-foreground " />
+                  <Trash2 className="h-4 w-4 text-muted-foreground" />
                 </div>
               </ConfirmModal>
             </div>
