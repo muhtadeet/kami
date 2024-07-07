@@ -26,59 +26,12 @@ interface BlankPageProps {
 }
 
 export const BlankPage = ({
-  id,
   label,
   onClick,
   icon: Icon,
   active,
   documentIcon,
-  isSearch,
-  level = 0,
-  onExpand,
-  expanded,
 }: BlankPageProps) => {
-  const { user } = useUser();
-  const router = useRouter();
-  const create = useMutation(api.documents.create);
-  const archive = useMutation(api.documents.archive);
-
-  const onArchive = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    event.stopPropagation();
-    if (!id) return;
-    const promise = archive({ id }).then(() => router.push("/documents"));
-
-    toast.promise(promise, {
-      loading: "Moving to trash... 🗑️",
-      success: "Note Moved to trash! 👋",
-      error: "Failed to archive note. 🥺",
-    });
-  };
-
-  const handleExpand = (
-    event: React.MouseEvent<HTMLDivElement, MouseEvent>
-  ) => {
-    event.stopPropagation();
-    onExpand?.();
-  };
-
-  const onCreate = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    event.stopPropagation();
-    if (!id) return;
-    const promise = create({ title: "Untitled", parentDocument: id }).then(
-      (documentId) => {
-        if (!expanded) {
-          onExpand?.();
-        }
-        router.push(`/documents/${documentId}`);
-      }
-    );
-    toast.promise(promise, {
-      loading: "Creating a new note... 💭",
-      success: "New note created! 🌟",
-      error: "Failed to create a new note. 🥺",
-    });
-  };
-
   return (
     <Card className="border-muted-foreground border-2 border-dashed rounded-xl ">
       <div
