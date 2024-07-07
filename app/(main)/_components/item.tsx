@@ -91,7 +91,9 @@ export const Item = ({
       {!!id && (
         <div
           role="button"
-          className="h-full rounded-sm hover:bg-slate-300 dark:hover:bg-slate-800 mr-1 transition ease-in-out"
+          className={cn(
+            "h-full rounded-sm hover:bg-slate-300 dark:hover:bg-slate-800 mr-1 transition ease-in-out"
+          )}
           onClick={handleExpand}
         >
           <ChevronRight
