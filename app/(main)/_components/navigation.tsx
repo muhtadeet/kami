@@ -33,6 +33,7 @@ import {
 } from "@/components/ui/drawer";
 import { Settings } from "@/components/modals/settings";
 import dynamic from "next/dynamic";
+import { PlaceholdersAndVanishInputDemo } from "./PlaceholdersAndVanishInputDemo";
 
 const DocumentList = dynamic(() => import("./document-list"));
 const Item = dynamic(() => import("./item"));
@@ -142,7 +143,7 @@ const Navigation = () => {
       <aside
         ref={sidebarRef}
         className={cn(
-          "group/sidebar h-screen bg-primary/5 dark:bg-slate-800/70 overflow-hidden relative flex w-60 flex-col z-[9]",
+          "group/sidebar h-screen bg-white dark:bg-slate-800 overflow-hidden relative flex w-60 flex-col z-[9]",
           isResetting && "transition-all ease-in-out duration-300",
           isMobile && "w-0"
         )}
@@ -224,14 +225,19 @@ const Navigation = () => {
         {!!params.documentId ? (
           <Navbar isCollapsed={isCollapsed} onResetWidth={resetWidth} />
         ) : (
-          <nav className="bg-transparent px-3 py-2 w-full">
+          <nav className="bg-transparent px-5 pt-5 mt-2 ml-2 flex flex-row gap-3 overflow-hidden">
             {isCollapsed && (
-              <PanelLeftOpen
-                onClick={resetWidth}
-                role="button"
-                className="h-6 w-6 text-muted-foreground"
-              />
+              <>
+                <PanelLeftOpen
+                  onClick={resetWidth}
+                  role="button"
+                  className="h-8 w-8 text-muted-foreground"
+                />
+              </>
             )}
+            <div className={cn("-mt-2", !isCollapsed && "2xl:w-[80%] md:w-[70%] xl:w-[60%] absolute md:left-0 xl:left-48 2xl:left-40")}>
+              <PlaceholdersAndVanishInputDemo onClick={search.onOpen} />
+            </div>
           </nav>
         )}
       </div>

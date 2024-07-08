@@ -33,6 +33,7 @@ export const archive = mutation({
       for (const child of children) {
         await ctx.db.patch(child._id, {
           isArchived: true,
+          isPinned: false,
         });
 
         await recursiveArchive(child._id);
@@ -41,9 +42,38 @@ export const archive = mutation({
 
     const document = await ctx.db.patch(args.id, {
       isArchived: true,
+      isPinned: false,
     });
 
     recursiveArchive(args.id);
+
+    return document;
+  },
+});
+
+export const pin = mutation({
+  args: { id: v.id("documents") },
+  handler: async (ctx, args) => {
+    const identity = await ctx.auth.getUserIdentity();
+    if (!identity) {
+      throw new Error("Not Authenticated");
+    }
+
+    const userId = identity.subject;
+
+    const existingDocument = await ctx.db.get(args.id);
+
+    if (!existingDocument) {
+      throw new Error("Not Found");
+    }
+
+    if (existingDocument.userId !== userId) {
+      throw new Error("Unauthorized");
+    }
+
+    const document = await ctx.db.patch(args.id, {
+      isPinned: true,
+    });
 
     return document;
   },
@@ -74,6 +104,31 @@ export const getSidebar = query({
   },
 });
 
+export const getHome = query({
+  args: {
+    creationTime: v.optional(v.id("documents")),
+  },
+  handler: async (ctx, args) => {
+    const identity = await ctx.auth.getUserIdentity();
+    if (!identity) {
+      throw new Error("Not Authenticated");
+    }
+
+    const userId = identity.subject;
+
+    const documents = await ctx.db
+      .query("documents")
+      .withIndex("by_user", (q) =>
+        q.eq("userId", userId)
+      )
+      .filter((q) => q.eq(q.field("isArchived"), false))
+      .order("desc")
+      .collect();
+
+    return documents;
+  },
+});
+
 export const create = mutation({
   args: {
     title: v.string(),
@@ -94,7 +149,8 @@ export const create = mutation({
       userId,
       isArchived: false,
       isPublished: false,
-      isEditable: false
+      isEditable: false,
+      isPinned: false,
     });
     return document;
   },
@@ -115,6 +171,50 @@ export const getTrash = query({
       .withIndex("by_user", (q) => q.eq("userId", userId))
       .filter((q) => q.eq(q.field("isArchived"), true))
       .order("desc")
+      .collect();
+
+    return documents;
+  },
+});
+
+// export const getPinned = query({
+//   handler: async (ctx) => {
+//     const identity = await ctx.auth.getUserIdentity();
+
+//     if (!identity) {
+//       throw new Error("Not Authenticated");
+//     }
+
+//     const userId = identity.subject;
+
+//     const documents = await ctx.db
+//       .query("documents")
+//       .withIndex("by_user", (q) => q.eq("userId", userId))
+//       .filter((q) => q.eq(q.field("isPinned"), true))
+//       .order("asc")
+//       .collect();
+
+//     return documents;
+//   },
+// });
+
+export const getPinned = query({
+  args: {
+    documentId: v.optional(v.id("documents")),
+  },
+  handler: async (ctx, args) => {
+    const identity = await ctx.auth.getUserIdentity();
+    if (!identity) {
+      throw new Error("Not Authenticated");
+    }
+
+    const userId = identity.subject;
+
+    const documents = await ctx.db
+      .query("documents")
+      .withIndex("by_user", (q) => q.eq("userId", userId))
+      .filter((q) => q.eq(q.field("isPinned"), true))
+      .order("asc")
       .collect();
 
     return documents;
@@ -173,6 +273,37 @@ export const restore = mutation({
     const document = await ctx.db.patch(args.id, options);
 
     recursiveRestore(args.id);
+
+    return document;
+  },
+});
+
+export const unPin = mutation({
+  args: { id: v.id("documents") },
+  handler: async (ctx, args) => {
+    const identity = await ctx.auth.getUserIdentity();
+
+    if (!identity) {
+      throw new Error("Not Authenticated");
+    }
+
+    const userId = identity.subject;
+
+    const existingDocument = await ctx.db.get(args.id);
+
+    if (!existingDocument) {
+      throw new Error("Not Found");
+    }
+
+    if (existingDocument.userId !== userId) {
+      throw new Error("Unauthorized");
+    }
+
+    const options: Partial<Doc<"documents">> = {
+      isPinned: false,
+    };
+
+    const document = await ctx.db.patch(args.id, options);
 
     return document;
   },

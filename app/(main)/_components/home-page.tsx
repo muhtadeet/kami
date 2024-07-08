@@ -10,21 +10,22 @@ import { useParams, useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { toast } from "sonner";
 import BlankPage from "../_components/blank-page";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 interface HomePageProps {
-  parentDocumentId?: Id<"documents">;
+  documentId?: Id<"documents">;
   // data?: Doc<"documents">;
 }
 
-const HomePage = ({ parentDocumentId }: HomePageProps) => {
+const HomePage = ({ documentId }: HomePageProps) => {
   const router = useRouter();
   const { user } = useUser();
   const create = useMutation(api.documents.create);
 
   const params = useParams();
 
-  const documents = useQuery(api.documents.getSidebar, {
-    parentDocument: parentDocumentId,
+  const documents = useQuery(api.documents.getHome, {
+    creationTime: documentId,
   });
 
   const onRedirect = (documentId: string) => {
@@ -45,7 +46,7 @@ const HomePage = ({ parentDocumentId }: HomePageProps) => {
   return (
     <div
       className={cn(
-        "h-full flex flex-col items-center justify-center space-y-20"
+        "h-full flex flex-col items-center justify-center space-y-12 xl:space-y-14 2xl:space-y-20"
       )}
     >
       <h2
@@ -56,9 +57,9 @@ const HomePage = ({ parentDocumentId }: HomePageProps) => {
       >
         Howdy, Hey {user?.firstName}! Welcome to your Kami! 🎉
       </h2>
-      <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 gap-y-7 sm:gap-x-16 sm:gap-y-14 xl:gap-x-40 xl:gap-y-20 ">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 gap-y-7 sm:gap-x-16 sm:gap-y-14 xl:gap-x-24 xl:gap-y-20 ">
         {documents &&
-          documents.slice(0, 9).map((document) => (
+          documents.slice(0, 8).map((document) => (
             <div key={document._id} className="gap-y-1 transition ease-in-out">
               <BlankPage
                 id={document._id}
@@ -77,17 +78,31 @@ const HomePage = ({ parentDocumentId }: HomePageProps) => {
       {documents && documents.length == 0 && (
         <Image src="/newNote.png" height={300} width={300} alt="New Note" />
       )}
-      <button
-        onClick={onCreate}
-        className="p-[3px] relative pointer-events-auto"
-      >
-        <div className="absolute inset-0 bg-gradient-to-r from-[#BB97F3] to-[#F9C4C9] rounded-lg" />
-        <div className="px-3 py-2  bg-transparent rounded-[6px]  relative group transition duration-200 text-white hover:text-black font-bold hover:bg-white flex flex-row">
-          Let&apos;s Create a new note&nbsp;
-          <span className="hidden sm:block">&nbsp;&#11212;</span>
-          <Sparkle className="sm:hidden h-4 w-4 pt-[0.1rem]" />
-        </div>
-      </button>
+      {documents && documents.length == 0 ? (
+        <button
+          onClick={onCreate}
+          className="p-[3px] relative pointer-events-auto"
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-[#BB97F3] to-[#F9C4C9] rounded-lg" />
+          <div className="px-3 py-2  bg-transparent rounded-[6px]  relative group transition duration-200 text-white hover:text-black font-bold hover:bg-white flex flex-row">
+            Let&apos;s Create a new note&nbsp;
+            <span className="hidden sm:block">&nbsp;&#11212;</span>
+            <Sparkle className="sm:hidden h-4 w-4 pt-[0.1rem]" />
+          </div>
+        </button>
+      ) : (
+        <button
+          onClick={onCreate}
+          className="p-[3px] absolute right-14 bottom-20 sm:right-auto sm:bottom-auto sm:relative pointer-events-auto"
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-[#BB97F3] to-[#F9C4C9] rounded-lg" />
+          <div className="px-3 py-2  bg-transparent rounded-[6px]  relative group transition duration-200 text-white hover:text-black font-bold hover:bg-white flex flex-row">
+            <p className="hidden sm:block">Let&apos;s Create a new note&nbsp;</p>
+            <span className="">&#11212;</span>
+            {/* <Sparkle className="sm:hidden h-4 w-4 pt-[0.1rem]" /> */}
+          </div>
+        </button>
+      )}
     </div>
   );
 };

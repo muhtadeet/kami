@@ -29,9 +29,11 @@ const Publish = ({ initialData }: PublishProps) => {
   const [copied, setCopied] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [editability, seteditability] = useState(false);
-  const [text, setText] = useState(initialData.isEditable ? "Collabed!" : "Collab!");
+  const [text, setText] = useState(
+    initialData.isEditable ? "Collabed!" : "Collab!"
+  );
 
-  const url = `${origin}/preview/${initialData._id}`;
+  const url = `${origin}/collab/${initialData._id}`;
 
   const onPublish = () => {
     setIsSubmitting(true);
@@ -150,7 +152,7 @@ const Publish = ({ initialData }: PublishProps) => {
                   : onRejecting
               }
             />
-
+            {/* <p className="text-white">{initialData.isPinned && "hehe"}</p> */}
             <Button
               size="sm"
               className="w-full text-xs px-4 py-2 rounded-md border dark:border-white font-semibold dark:bg-white dark:hover:bg-slate-700 dark:hover:text-white border-black hover:bg-white bg-black hover:text-slate-700 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0)] dark:hover:shadow-[4px_4px_0px_0px_rgba(255,255,255)] transition ease-in-out duration-200"

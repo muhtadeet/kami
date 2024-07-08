@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Skeleton } from "@/components/ui/skeleton";
 import { api } from "@/convex/_generated/api";
-import { Id } from "@/convex/_generated/dataModel";
+import { Doc, Id } from "@/convex/_generated/dataModel";
 import { useUser } from "@clerk/clerk-react";
 import { useMutation } from "convex/react";
 import { Sparkle, Trash2 } from "lucide-react";
@@ -19,9 +19,10 @@ import { toast } from "sonner";
 
 interface MenuProps {
   documentId: Id<"documents">;
+  initialData?: Doc<"documents">;
 }
 
-const Menu = ({ documentId }: MenuProps) => {
+const Menu = ({ documentId, initialData }: MenuProps) => {
   const router = useRouter();
   const { user } = useUser();
   const archive = useMutation(api.documents.archive);

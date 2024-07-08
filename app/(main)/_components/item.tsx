@@ -2,7 +2,7 @@
 
 import { Skeleton } from "@/components/ui/skeleton";
 import { api } from "@/convex/_generated/api";
-import { Id } from "@/convex/_generated/dataModel";
+import { Doc, Id } from "@/convex/_generated/dataModel";
 import { cn } from "@/lib/utils";
 import { useUser } from "@clerk/clerk-react";
 import { useMutation } from "convex/react";
@@ -13,6 +13,7 @@ import { toast } from "sonner";
 
 interface ItemProps {
   id?: Id<"documents">;
+  initialData?: Doc<"documents">;
   documentIcon?: string;
   active?: boolean;
   expanded?: boolean;
@@ -26,6 +27,7 @@ interface ItemProps {
 
 export const Item = ({
   id,
+  initialData,
   label,
   onClick,
   icon: Icon,
@@ -40,11 +42,37 @@ export const Item = ({
   const router = useRouter();
   const create = useMutation(api.documents.create);
   const archive = useMutation(api.documents.archive);
+  const pin = useMutation(api.documents.pin);
+  const unPin = useMutation(api.documents.unPin);
 
   const onArchive = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     event.stopPropagation();
     if (!id) return;
     const promise = archive({ id }).then(() => router.push("/documents"));
+
+    toast.promise(promise, {
+      loading: "Moving to trash... 🗑️",
+      success: "Note Moved to trash! 👋",
+      error: "Failed to archive note. 🥺",
+    });
+  };
+
+  const onPin = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    event.stopPropagation();
+    if (!id) return;
+    const promise = pin({ id }).then(() => router.push("/documents"));
+
+    toast.promise(promise, {
+      loading: "Moving to trash... 🗑️",
+      success: "Note Moved to trash! 👋",
+      error: "Failed to archive note. 🥺",
+    });
+  };
+
+  const onUnpin = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    event.stopPropagation();
+    if (!id) return;
+    const promise = unPin({ id }).then(() => router.push("/documents"));
 
     toast.promise(promise, {
       loading: "Moving to trash... 🗑️",
@@ -139,6 +167,25 @@ export const Item = ({
           >
             <Plus className="h-5 w-5 sm:h-4 sm:w-4 text-muted-foreground transition ease-in-out" />
           </div>
+          {/* {initialData?.isPinned ? (
+            <div
+              role="button"
+              onClick={onPin}
+              className="opacity-100 sm:opacity-0 sm:group-hover:opacity-100 h-full ml-auto mr-1 rounded-sm hover:bg-neutral-300 dark:hover:bg-neutral-600 transition ease-in-out"
+            >
+              <Plus className="h-5 w-5 sm:h-4 sm:w-4 text-muted-foreground transition ease-in-out" />{" "}
+              Pin
+            </div>
+          ) : (
+            <div
+              role="button"
+              onClick={onUnpin}
+              className="opacity-100 sm:opacity-0 sm:group-hover:opacity-100 h-full ml-auto mr-1 rounded-sm hover:bg-neutral-300 dark:hover:bg-neutral-600 transition ease-in-out"
+            >
+              <Plus className="h-5 w-5 sm:h-4 sm:w-4 text-muted-foreground transition ease-in-out" />{" "}
+              Unpin
+            </div>
+          )} */}
         </div>
       )}
     </div>
