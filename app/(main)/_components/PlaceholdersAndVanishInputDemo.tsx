@@ -11,11 +11,10 @@ export function PlaceholdersAndVanishInputDemo({
   onClick,
 }: PlaceholdersAndVanishInputDemoProps) {
   const placeholders = [
-    "What's the first rule of Fight Club?",
-    "Who is Tyler Durden?",
-    "Where is Andrew Laeddis Hiding?",
-    "Write a Javascript method to reverse a string",
-    "How to assemble your own PC?",
+    "Seek the note, in corners deep,",
+    "Flip through pages, secrets keep,",
+    "Unveiling words, your mind shall roam,",
+    "Discover tales that lead you home.",
   ];
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
