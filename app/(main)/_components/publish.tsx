@@ -33,7 +33,7 @@ const Publish = ({ initialData }: PublishProps) => {
     initialData.isEditable ? "Collabed!" : "Collab!"
   );
 
-  const url = `${origin}/collab/${initialData._id}`;
+  const url = `${origin}/preview/${initialData._id}`;
 
   const onPublish = () => {
     setIsSubmitting(true);
