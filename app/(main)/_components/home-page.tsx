@@ -98,8 +98,8 @@ const HomePage = ({ documentId }: HomePageProps) => {
           <div className="absolute inset-0 bg-gradient-to-r from-[#BB97F3] to-[#F9C4C9] rounded-lg" />
           <div className="px-3 py-2  bg-transparent rounded-[6px]  relative group transition duration-200 text-white hover:text-black font-bold hover:bg-white flex flex-row">
             <p className="hidden sm:block">Let&apos;s Create a new note&nbsp;</p>
-            <span className="">&#11212;</span>
-            {/* <Sparkle className="sm:hidden h-4 w-4 pt-[0.1rem]" /> */}
+            <span className="hidden sm:block">&#11212;</span>
+            <Sparkle className="sm:hidden h-4 w-4 pt-[0.1rem]" />
           </div>
         </button>
       )}
