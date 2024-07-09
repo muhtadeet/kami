@@ -50,7 +50,7 @@ export const BlankPage = ({
           )}
         </CardHeader>
         <CardContent>
-          <span className="truncate">{label}</span>
+          <span className="truncate text-pretty">{label}</span>
         </CardContent>
       </div>
     </Card>
