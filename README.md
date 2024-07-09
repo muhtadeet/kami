@@ -5,6 +5,7 @@
 ## Features in this application
 
 - Real-time changes ⏳
+- Collaboration ✒️
 - Move to trash functionality 🗑️
 - Custom emoji picker 🥳
 - Light mode dark mode 🌅
