@@ -12,20 +12,47 @@ import { api } from "@/convex/_generated/api";
 import { Doc, Id } from "@/convex/_generated/dataModel";
 import { useUser } from "@clerk/clerk-react";
 import { useMutation } from "convex/react";
-import { Sparkle, Trash2 } from "lucide-react";
+import { Pin, PinOff, Sparkle, Trash2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import React from "react";
 import { toast } from "sonner";
 
 interface MenuProps {
+  id: Id<"documents">;
   documentId: Id<"documents">;
   initialData?: Doc<"documents">;
 }
 
-const Menu = ({ documentId, initialData }: MenuProps) => {
+const Menu = ({ id, documentId, initialData }: MenuProps) => {
   const router = useRouter();
   const { user } = useUser();
   const archive = useMutation(api.documents.archive);
+  const pin = useMutation(api.documents.pin);
+  const unPin = useMutation(api.documents.unPin);
+
+  const onPin = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    event.stopPropagation();
+    // if (!id) return;
+    const promise = pin({ id });
+
+    toast.promise(promise, {
+      loading: "Pinning Note to home... 🤏",
+      success: "Note Pinned to home! 📌",
+      error: "Failed to pin note. 🥺",
+    });
+  };
+
+  const onUnpin = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    event.stopPropagation();
+    // if (!id) return;
+    const promise = unPin({ id });
+
+    toast.promise(promise, {
+      loading: "Unpinning Note from home... 🤏",
+      success: "Note Unpinned from home! 🗞️",
+      error: "Failed to unpin note. 🥺",
+    });
+  };
 
   const onArchive = () => {
     const promise = archive({ id: documentId });
@@ -60,9 +87,17 @@ const Menu = ({ documentId, initialData }: MenuProps) => {
           Delete
         </DropdownMenuItem>
         {/* <DropdownMenuSeparator />
-        <div className="text-xs text-muted-foreground p-2">
-          Last edited by: {user?.fullName}
-        </div> */}
+        {initialData?._id && initialData?.isPinned ? (
+          <DropdownMenuItem onClick={onUnpin} className="flex flex-row">
+            <PinOff className="h-4 w-4 mr-2" />
+            Unpin Note
+          </DropdownMenuItem>
+        ) : (
+          <DropdownMenuItem onClick={onPin} className="flex flex-row">
+            <Pin className="h-4 w-4 mr-2" />
+            Pin Note
+          </DropdownMenuItem>
+        )} */}
       </DropdownMenuContent>
     </DropdownMenu>
   );

@@ -191,7 +191,7 @@ export const getTrash = query({
 //       .query("documents")
 //       .withIndex("by_user", (q) => q.eq("userId", userId))
 //       .filter((q) => q.eq(q.field("isPinned"), true))
-//       .order("asc")
+//       .order("desc")
 //       .collect();
 
 //     return documents;
@@ -214,7 +214,7 @@ export const getPinned = query({
       .query("documents")
       .withIndex("by_user", (q) => q.eq("userId", userId))
       .filter((q) => q.eq(q.field("isPinned"), true))
-      .order("asc")
+      .order("desc")
       .collect();
 
     return documents;
