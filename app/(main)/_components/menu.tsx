@@ -18,41 +18,40 @@ import React from "react";
 import { toast } from "sonner";
 
 interface MenuProps {
-  id: Id<"documents">;
   documentId: Id<"documents">;
   initialData?: Doc<"documents">;
 }
 
-const Menu = ({ id, documentId, initialData }: MenuProps) => {
+const Menu = ({ documentId, initialData }: MenuProps) => {
   const router = useRouter();
   const { user } = useUser();
   const archive = useMutation(api.documents.archive);
   const pin = useMutation(api.documents.pin);
   const unPin = useMutation(api.documents.unPin);
 
-  const onPin = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    event.stopPropagation();
-    // if (!id) return;
-    const promise = pin({ id });
+  // const onPin = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+  //   event.stopPropagation();
+  //   // if (!id) return;
+  //   const promise = pin({ id });
 
-    toast.promise(promise, {
-      loading: "Pinning Note to home... 🤏",
-      success: "Note Pinned to home! 📌",
-      error: "Failed to pin note. 🥺",
-    });
-  };
+  //   toast.promise(promise, {
+  //     loading: "Pinning Note to home... 🤏",
+  //     success: "Note Pinned to home! 📌",
+  //     error: "Failed to pin note. 🥺",
+  //   });
+  // };
 
-  const onUnpin = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    event.stopPropagation();
-    // if (!id) return;
-    const promise = unPin({ id });
+  // const onUnpin = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+  //   event.stopPropagation();
+  //   // if (!id) return;
+  //   const promise = unPin({ id });
 
-    toast.promise(promise, {
-      loading: "Unpinning Note from home... 🤏",
-      success: "Note Unpinned from home! 🗞️",
-      error: "Failed to unpin note. 🥺",
-    });
-  };
+  //   toast.promise(promise, {
+  //     loading: "Unpinning Note from home... 🤏",
+  //     success: "Note Unpinned from home! 🗞️",
+  //     error: "Failed to unpin note. 🥺",
+  //   });
+  // };
 
   const onArchive = () => {
     const promise = archive({ id: documentId });
