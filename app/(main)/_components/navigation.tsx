@@ -235,7 +235,7 @@ const Navigation = () => {
                 />
               </>
             )}
-            <div className={cn("hidden sm:block -mt-2", !isCollapsed && "2xl:w-[80%] md:w-[70%] xl:w-[60%] absolute md:left-0 xl:left-48 2xl:left-40")}>
+            <div className={cn(" sm:block -mt-2", !isCollapsed && "hidden 2xl:w-[80%] md:w-[70%] xl:w-[60%] absolute md:left-0 xl:left-48 2xl:left-40")}>
               <PlaceholdersAndVanishInputDemo onClick={search.onOpen} />
             </div>
           </nav>
